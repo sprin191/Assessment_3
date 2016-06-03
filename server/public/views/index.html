@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assessment3</title>
+        <link rel="stylesheet" href="/assets/styles/stylesheet.css">
+
+        <script type="text/javascript" src="/vendors/angular.min.js"></script>
+        <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+        <script type="text/javascript" src="/scripts/clientapp.js"></script>
+        <script type="text/javascript" src="/scripts/controllers/entryController.js"></script>
+        <script type="text/javascript" src="/scripts/controllers/searchController.js"></script>
+    </head>
+
+    <body ng-app="heroApp">
+      <header ng-include="'/views/templates/header.html'"></header>
+
+      <div ng-include="'/views/templates/nav.html'"></div>
+
+      <main ng-view></main>
+
+    </body>
+</html>
