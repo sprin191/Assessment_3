@@ -2,7 +2,7 @@ heroApp.controller('searchController', ['$scope', '$http', function ($scope, $ht
   $scope.powerType = '';
   $scope.filter = '';
   $scope.heroes = {};
-  var powers = {};
+  $scope.powers = {};
 
 getHeroes();
 getPowers();
@@ -30,7 +30,7 @@ function getPowers() {
   $http.get('/search')
     .then(function (response) {
       console.log('GET /search ', response.data);
-      powers = response.data;
+      $scope.powers = response.data;
     });
   }
 
