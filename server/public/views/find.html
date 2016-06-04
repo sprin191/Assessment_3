@@ -2,23 +2,18 @@
   <h1>View All Heroes or Power Search</h1>
 
     <label for="power">Power:</label>
-    <select name="powerType" id="currentPower" ng-model="powerType">
-    <option value="">Select Type</option>
-    <option value="Invisibility">Invisibility</option>
-    <option value="Flight">Flight</option>
-    <option value="Super Speed">Super Speed</option>
-    <option value="Heat Vision">Heat Vision</option>
-    <option value="Super Strength">Super Strength</option>
-    <option value="Accelerated Healing">Accelerated Healing</option>
-    <option value="Power Blast">Power Blast</option>
-    <option value="Animal Affinity">Animal Affinity</option>
+    <select name="powerType" id="currentPower" ng-model="powerType" ng-change="powerSearch()">
+    <option ng-repeat="power in powers" value="{{power.power_name}}" >
+      {{power.power_name}}
+    </option>
+    <option value="">See All Powers</option>
    </select>
 
    <button>Submit</button>
 </section>
 
 <section>
-<div class="row" ng-repeat="hero in heroes">
+<div class="row" ng-repeat="hero in filter">
     <div class="col-md-6 col-md-offset-3">
       <div class="mainContainer">
         <h2>{{hero.alias}}, {{hero.first_name}} {{hero.last_name}}, {{hero.city}}, {{hero.power_name}}</h2>

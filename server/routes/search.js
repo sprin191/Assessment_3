@@ -1,27 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var Hero = require('../models/hero');
+var SuperPower = require('../models/superpower');
 
 router.get('/', function (req, res) {
-  Hero.find({}, function (err, heroes) {
-    if (err) {
-      res.sendStatus(500);
-      return;
-    }
-
-    res.send(heroes);
-  });
+    SuperPower.find({}, function (err, powers) {
+      if (err) {
+        res.sendStatus(500);
+        console.log(err);
+        return;
+      }
+      console.log(powers);
+      res.send(powers);
+    });
 });
 
-router.delete('/:id', function (req, res) {
-  Hero.findByIdAndRemove(req.params.id, function (err) {
-    if (err) {
-      res.sendStatus(500);
-      return;
-    }
-
-    res.sendStatus(204);
-  });
-});
 
 module.exports = router;
